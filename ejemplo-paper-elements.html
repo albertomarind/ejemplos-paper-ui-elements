@@ -7,6 +7,7 @@
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../paper-progress/paper-progress.html">
 <link rel="import" href="../paper-spinner/paper-spinner.html">
 <link rel="import" href="../paper-swatch-picker/paper-swatch-picker.html">
@@ -19,7 +20,7 @@
     <style>
       :host {
         display: block;
-        font-family: 'Andika New Basic', sans-serif;
+        font-family: 'Roboto', sans-serif;
         position: relative;
       }
 
@@ -69,7 +70,7 @@
         padding: 1rem;
       }
 
-      paper-tabs {
+      .tab-example paper-tabs {
 
         --paper-tabs-selection-bar: {
           border: 3px solid green;
@@ -78,9 +79,33 @@
         ;
       }
 
+      .tab-example paper-tabs {
+        background-color: black;
+        color: white;
+      }
+
       paper-icon-button[title='heart'] {
         padding: 0;
         color: #dd4a68;
+      }
+
+      paper-icon-button[icon='account-box'] {
+        padding: 0;
+        color: #0866a5;
+        margin-left: 1rem;
+      }
+
+      .blue {
+        --paper-badge-background: var(--paper-light-blue-300);
+      }
+
+      paper-button.indigo {
+        background-color: var(--paper-indigo-500);
+        color: white;
+      }
+
+      paper-button.indigo:hover {
+        background-color: var(--paper-indigo-400);
       }
 
       paper-badge {
@@ -113,6 +138,10 @@
         width: 250px;
       }
 
+      .dropdown-example {
+        display: flex;
+      }
+
       paper-dropdown-menu {
         height: 200px;
         margin: auto;
@@ -125,11 +154,6 @@
 
       paper-spinner-lite.thick {
         --paper-spinner-stroke-width: 6px;
-      }
-
-      paper-tabs {
-        background-color: black;
-        color: white;
       }
 
       paper-toolbar.red {
@@ -147,6 +171,65 @@
         color: #9705d4;
         transform: scale(1.5);
       }
+
+      .cafe-light {
+        color: var(--paper-grey-600);
+      }
+
+      .cafe-location {
+        float: right;
+        font-size: 15px;
+        vertical-align: middle;
+      }
+
+      .cafe-reserve {
+        color: var(--google-blue-500);
+      }
+
+      iron-icon.star {
+        --iron-icon-width: 16px;
+        --iron-icon-height: 16px;
+        color: var(--paper-amber-500);
+      }
+
+      iron-icon.star:last-of-type {
+        color: var(--paper-grey-500);
+      }
+
+      .card-examples {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card-examples paper-card {
+        margin-bottom: 1rem;
+      }
+
+      .progress-example {
+        padding: 1rem;
+      }
+
+      paper-progress {
+        display: block;
+        width: 100%;
+        margin: 20px 0;
+      }
+
+      paper-progress.slow {
+        --paper-progress-indeterminate-cycle-duration: 5s;
+      }
+
+      paper-progress.blue {
+        --paper-progress-active-color: var(--paper-light-blue-500);
+        --paper-progress-secondary-color: var(--paper-light-blue-100);
+      }
+
+      paper-progress.red {
+        --paper-progress-active-color: var(--paper-red-500);
+        --paper-progress-secondary-color: var(--paper-red-100);
+      }
     </style>
     <div>
       <h1>PAPER ELEMENTS</h1>
@@ -156,13 +239,14 @@
         </div>
         <div class="demo__body">
           <div class="badge-demo">
-
             <paper-icon-button icon="favorite" title="heart" id="btn"></paper-icon-button>
-
             <paper-badge for="btn" label="5"></paper-badge>
+            <paper-icon-button id="icon2" icon="account-box" alt="account-box">
+            </paper-icon-button>
+            <paper-badge icon="assignment-late" for="icon2" class="blue">
+            </paper-badge>
           </div>
         </div>
-
       </div>
       <div class="demo">
         <div class="demo__header">
@@ -170,24 +254,54 @@
         </div>
         <div class="demo__body">
           <paper-button toggles raised class="green">Boton con toggle</paper-button>
+          <paper-button raised class="indigo">raised</paper-button>
         </div>
-
       </div>
       <div class="demo">
         <div class="demo__header">
           <h2 class="demo__header-title">Paper Card</h2>
         </div>
         <div class="demo__body">
-          <paper-card heading="Emmental" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
-            <div class="card-content">
-              Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental,
-              Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
-            </div>
-            <div class="card-actions">
-              <paper-button>Share</paper-button>
-              <paper-button>Explore!</paper-button>
-            </div>
-          </paper-card>
+          <div class="card-examples">
+            <paper-card image="donas.png">
+              <div class="card-content">
+                <div class="cafe-header">Cafe Basilico
+                  <div class="cafe-location cafe-light">
+                    <iron-icon icon="communication:location-on"></iron-icon>
+                    <span>250ft</span>
+                  </div>
+                </div>
+                <div class="cafe-rating">
+                  <iron-icon class="star" icon="star"></iron-icon>
+                  <iron-icon class="star" icon="star"></iron-icon>
+                  <iron-icon class="star" icon="star"></iron-icon>
+                  <iron-icon class="star" icon="star"></iron-icon>
+                  <iron-icon class="star" icon="star"></iron-icon>
+                </div>
+                <p>$・Italian, Cafe</p>
+                <p class="cafe-light">Small plates, salads &amp; sandwiches in an intimate setting.</p>
+              </div>
+              <div class="card-actions">
+                <div class="horizontal justified">
+                  <paper-icon-button icon="icons:event"></paper-icon-button>
+                  <paper-button>5:30PM</paper-button>
+                  <paper-button>7:30PM</paper-button>
+                  <paper-button>9:00PM</paper-button>
+                  <paper-button class="cafe-reserve">Reserve</paper-button>
+                </div>
+              </div>
+            </paper-card>
+            <paper-card heading="Emmental" image="carro.jpeg" alt="Emmental">
+              <div class="card-content">
+                Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental,
+                Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+              </div>
+              <div class="card-actions">
+                <paper-button>Share</paper-button>
+                <paper-button>Explore!</paper-button>
+              </div>
+            </paper-card>
+          </div>
         </div>
       </div>
       <div class="demo">
@@ -195,14 +309,23 @@
           <h2 class="demo__header-title">Paper Dropdown Menu</h2>
         </div>
         <div class="demo__body">
-          <paper-dropdown-menu label="Dinosaurs">
-            <paper-listbox slot="dropdown-content" class="dropdown-content">
-              <paper-item>allosaurus</paper-item>
-              <paper-item>brontosaurus</paper-item>
-              <paper-item>carcharodontosaurus</paper-item>
-              <paper-item>diplodocus</paper-item>
-            </paper-listbox>
-          </paper-dropdown-menu>
+          <div class="dropdown-example">
+            <paper-dropdown-menu label="Dinosaurs">
+              <paper-listbox slot="dropdown-content" class="dropdown-content">
+                <paper-item>allosaurus</paper-item>
+                <paper-item>brontosaurus</paper-item>
+                <paper-item>carcharodontosaurus</paper-item>
+                <paper-item>diplodocus</paper-item>
+              </paper-listbox>
+            </paper-dropdown-menu>
+            <paper-dropdown-menu label="Menu tabs!?">
+              <paper-tabs slot="dropdown-content" class="dropdown-content">
+                <paper-tab>cheddar</paper-tab>
+                <paper-tab>stilton</paper-tab>
+                <paper-tab>emmental</paper-tab>
+              </paper-tabs>
+            </paper-dropdown-menu>
+          </div>
         </div>
 
       </div>
@@ -212,7 +335,7 @@
         </div>
         <div class="demo__body">
           <paper-icon-button noink icon="star" title="star"></paper-icon-button>
-
+          <paper-icon-button disabled icon="reply" title="reply"></paper-icon-button>
         </div>
 
       </div>
@@ -251,7 +374,11 @@
           <h2 class="demo__header-title">Paper Progress</h2>
         </div>
         <div class="demo__body">
-          <paper-progress value="40" secondary-progress="80"></paper-progress>
+          <div class="progress-example">
+            <paper-progress indeterminate class="blue"></paper-progress>
+            <paper-progress indeterminate class="slow red"></paper-progress>
+            <paper-progress value="40" secondary-progress="80"></paper-progress>
+          </div>
         </div>
 
       </div>
@@ -276,11 +403,14 @@
           <h2 class="demo__header-title">Paper Tabs</h2>
         </div>
         <div class="demo__body">
-          <paper-tabs selected="0">
-            <paper-tab>ITEM ONE</paper-tab>
-            <paper-tab>ITEM TWO</paper-tab>
-            <paper-tab>ITEM THREE</paper-tab>
-          </paper-tabs>
+          <div class="tab-example">
+            <paper-tabs selected="0">
+              <paper-tab>ITEM ONE</paper-tab>
+              <paper-tab>ITEM TWO</paper-tab>
+              <paper-tab>ITEM THREE</paper-tab>
+            </paper-tabs>
+          </div>
+
         </div>
       </div>
       <div class="demo">
