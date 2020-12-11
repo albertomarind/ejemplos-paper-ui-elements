@@ -1,0 +1,203 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../paper-badge/paper-badge.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-progress/paper-progress.html">
+<link rel="import" href="../paper-spinner/paper-spinner.html">
+<link rel="import" href="../paper-swatch-picker/paper-swatch-picker.html">
+<link rel="import" href="../paper-tabs/paper-tabs.html">
+<link rel="import" href="../paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../paper-tooltip/paper-tooltip.html">
+
+<dom-module id="ejemplo-paper-elements">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      paper-badge{
+        --paper-badge-width:40px;
+        --paper-badge-height:40px;
+      }
+
+      paper-button.btn-badge {
+        border: 1px solid lightgray;
+      }
+
+      paper-button {
+        font-family: 'Roboto', 'Noto', sans-serif;
+        font-weight: normal;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      paper-button.green {
+        background-color: var(--paper-green-500);
+        color: white;
+      }
+
+      paper-button.green[active] {
+        background-color: var(--paper-red-500);
+      }
+
+      paper-dropdown-menu,
+      paper-listbox {
+        width: 250px;
+      }
+
+      paper-dropdown-menu {
+        height: 200px;
+        margin: auto;
+        display: block;
+      }
+
+      [role='listbox'] {
+        border: 1px solid lightgray;
+      }
+
+      paper-spinner-lite.thick {
+        --paper-spinner-stroke-width: 6px;
+      }
+
+      paper-tabs {
+        background-color: gray;
+      }
+
+      paper-toolbar.red {
+        --paper-toolbar-background: red;
+
+        --paper-toolbar-title: {
+          font-style: italic;
+          font-weight: bold;
+        }
+
+        ;
+      }
+    </style>
+    <div>
+      <h1>PAPER ELEMENTS</h1>
+      <div>
+        <h2>Paper Badge</h2>
+        <div>
+          <paper-button id="btn" class="btn-badge">Notificaciones</paper-button>
+          <paper-badge for="btn" label="5"></paper-badge>
+        </div>
+      </div>
+      <div>
+        <h2>Paper Button</h2>
+        <paper-button toggles raised class="green">Boton con toggle</paper-button>
+      </div>
+      <div>
+        <h2>Paper Card</h2>
+        <paper-card heading="Emmental" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
+          <div class="card-content">
+            Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental,
+            Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+          </div>
+          <div class="card-actions">
+            <paper-button>Share</paper-button>
+            <paper-button>Explore!</paper-button>
+          </div>
+        </paper-card>
+      </div>
+      <div>
+        <h2>Paper Dropdown Menu</h2>
+        <paper-dropdown-menu label="Dinosaurs">
+          <paper-listbox slot="dropdown-content" class="dropdown-content">
+            <paper-item>allosaurus</paper-item>
+            <paper-item>brontosaurus</paper-item>
+            <paper-item>carcharodontosaurus</paper-item>
+            <paper-item>diplodocus</paper-item>
+          </paper-listbox>
+        </paper-dropdown-menu>
+      </div>
+      <div>
+        <h2>Paper Icon Button</h2>
+        <paper-icon-button icon="favorite" title="heart"></paper-icon-button>
+      </div>
+      <div>
+        <h2>Paper Item</h2>
+        <div role="listbox">
+          <paper-item>Inbox</paper-item>
+          <paper-item>Starred</paper-item>
+          <paper-item>Sent mail</paper-item>
+        </div>
+      </div>
+      <div>
+        <h2>Paper Menu Button</h2>
+        <paper-menu-button>
+          <paper-icon-button icon="menu" slot="dropdown-trigger" alt="menu"></paper-icon-button>
+          <paper-listbox slot="dropdown-content">
+            <paper-item>alpha</paper-item>
+            <paper-item>beta</paper-item>
+            <paper-item>gamma</paper-item>
+            <paper-item>delta</paper-item>
+            <paper-item>epsilon</paper-item>
+          </paper-listbox>
+        </paper-menu-button>
+      </div>
+      <div>
+        <h2>Paper Progress</h2>
+        <paper-progress value="40" secondary-progress="80"></paper-progress>
+      </div>
+      <div>
+        <h2>Paper Spinner</h2>
+        <paper-spinner active></paper-spinner>
+      </div>
+      <div>
+        <h2>Paper Swatch Picker</h2>
+        <paper-swatch-picker color="#E91E63"></paper-swatch-picker>
+      </div>
+      <div>
+        <h2>Paper Tabs</h2>
+        <paper-tabs selected="0">
+          <paper-tab>ITEM ONE</paper-tab>
+          <paper-tab>ITEM TWO</paper-tab>
+          <paper-tab>ITEM THREE</paper-tab>
+        </paper-tabs>
+      </div>
+      <div>
+        <h2>Paper Toolbar</h2>
+        <paper-toolbar class="red">
+          <span slot="top" class="title">Title</span>
+        </paper-toolbar>
+      </div>
+      <div>
+        <h2>Paper Tooltip</h2>
+        <paper-icon-button id="id_2" icon="alarm-on" alt="go back"></paper-icon-button>
+        <paper-tooltip for="id_2" offset="0">wake up!</paper-tooltip>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    /**
+     * `ejemplo-paper-elements`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class EjemploPaperElements extends Polymer.Element {
+      static get is() { return 'ejemplo-paper-elements'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'ejemplo-paper-elements'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(EjemploPaperElements.is, EjemploPaperElements);
+  </script>
+</dom-module>
