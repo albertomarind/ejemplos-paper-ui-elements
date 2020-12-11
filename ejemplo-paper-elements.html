@@ -19,11 +19,73 @@
     <style>
       :host {
         display: block;
+        font-family: 'Andika New Basic', sans-serif;
+        position: relative;
       }
 
-      paper-badge{
-        --paper-badge-width:40px;
-        --paper-badge-height:40px;
+      :host::after {
+        content: 'DEMO';
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: inline-block;
+        background-color: black;
+        color: white;
+        padding: .125rem .25rem;
+        text-align: center;
+        font-weight: 700;
+        width: 200px;
+        transform: rotate(45deg) translate(23%, -300%);
+      }
+
+      .demo {
+        border: 1px solid #dedede;
+        margin-bottom: 2rem;
+      }
+
+      .demo__header {
+        background-color: #07a;
+        padding: .25rem .75rem;
+      }
+
+      .demo__header-title {
+        margin: 0;
+        font-size: 1.2rem;
+        color: white;
+        font-weight: normal;
+      }
+
+      .demo__body {
+        padding: .75rem .25rem;
+      }
+
+      h1 {
+        text-align: center;
+        letter-spacing: 18px;
+        color: #585858;
+      }
+
+      .badge-demo {
+        padding: 1rem;
+      }
+
+      paper-tabs {
+
+        --paper-tabs-selection-bar: {
+          border: 3px solid green;
+        }
+
+        ;
+      }
+
+      paper-icon-button[title='heart'] {
+        padding: 0;
+        color: #dd4a68;
+      }
+
+      paper-badge {
+        --paper-badge-width: 20px;
+        --paper-badge-height: 20px;
       }
 
       paper-button.btn-badge {
@@ -66,7 +128,8 @@
       }
 
       paper-tabs {
-        background-color: gray;
+        background-color: black;
+        color: white;
       }
 
       paper-toolbar.red {
@@ -82,96 +145,160 @@
     </style>
     <div>
       <h1>PAPER ELEMENTS</h1>
-      <div>
-        <h2>Paper Badge</h2>
-        <div>
-          <paper-button id="btn" class="btn-badge">Notificaciones</paper-button>
-          <paper-badge for="btn" label="5"></paper-badge>
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Badge</h2>
+        </div>
+        <div class="demo__body">
+          <div class="badge-demo">
+
+            <paper-icon-button icon="favorite" title="heart" id="btn"></paper-icon-button>
+
+            <paper-badge for="btn" label="5"></paper-badge>
+          </div>
+        </div>
+
+      </div>
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Button</h2>
+        </div>
+        <div class="demo__body">
+          <paper-button toggles raised class="green">Boton con toggle</paper-button>
+        </div>
+
+      </div>
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Card</h2>
+        </div>
+        <div class="demo__body">
+          <paper-card heading="Emmental" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
+            <div class="card-content">
+              Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental,
+              Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+            </div>
+            <div class="card-actions">
+              <paper-button>Share</paper-button>
+              <paper-button>Explore!</paper-button>
+            </div>
+          </paper-card>
         </div>
       </div>
-      <div>
-        <h2>Paper Button</h2>
-        <paper-button toggles raised class="green">Boton con toggle</paper-button>
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Dropdown Menu</h2>
+        </div>
+        <div class="demo__body">
+          <paper-dropdown-menu label="Dinosaurs">
+            <paper-listbox slot="dropdown-content" class="dropdown-content">
+              <paper-item>allosaurus</paper-item>
+              <paper-item>brontosaurus</paper-item>
+              <paper-item>carcharodontosaurus</paper-item>
+              <paper-item>diplodocus</paper-item>
+            </paper-listbox>
+          </paper-dropdown-menu>
+        </div>
+
       </div>
-      <div>
-        <h2>Paper Card</h2>
-        <paper-card heading="Emmental" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
-          <div class="card-content">
-            Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental,
-            Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Icon Button</h2>
+        </div>
+        <div class="demo__body">
+          <paper-icon-button icon="favorite" title="heart"></paper-icon-button>
+        </div>
+
+      </div>
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Item</h2>
+        </div>
+        <div class="demo__body">
+          <div role="listbox">
+            <paper-item>Inbox</paper-item>
+            <paper-item>Starred</paper-item>
+            <paper-item>Sent mail</paper-item>
           </div>
-          <div class="card-actions">
-            <paper-button>Share</paper-button>
-            <paper-button>Explore!</paper-button>
-          </div>
-        </paper-card>
+        </div>
+
       </div>
-      <div>
-        <h2>Paper Dropdown Menu</h2>
-        <paper-dropdown-menu label="Dinosaurs">
-          <paper-listbox slot="dropdown-content" class="dropdown-content">
-            <paper-item>allosaurus</paper-item>
-            <paper-item>brontosaurus</paper-item>
-            <paper-item>carcharodontosaurus</paper-item>
-            <paper-item>diplodocus</paper-item>
-          </paper-listbox>
-        </paper-dropdown-menu>
-      </div>
-      <div>
-        <h2>Paper Icon Button</h2>
-        <paper-icon-button icon="favorite" title="heart"></paper-icon-button>
-      </div>
-      <div>
-        <h2>Paper Item</h2>
-        <div role="listbox">
-          <paper-item>Inbox</paper-item>
-          <paper-item>Starred</paper-item>
-          <paper-item>Sent mail</paper-item>
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Menu Button</h2>
+        </div>
+        <div class="demo__body">
+          <paper-menu-button>
+            <paper-icon-button icon="menu" slot="dropdown-trigger" alt="menu"></paper-icon-button>
+            <paper-listbox slot="dropdown-content">
+              <paper-item>alpha</paper-item>
+              <paper-item>beta</paper-item>
+              <paper-item>gamma</paper-item>
+              <paper-item>delta</paper-item>
+              <paper-item>epsilon</paper-item>
+            </paper-listbox>
+          </paper-menu-button>
         </div>
       </div>
-      <div>
-        <h2>Paper Menu Button</h2>
-        <paper-menu-button>
-          <paper-icon-button icon="menu" slot="dropdown-trigger" alt="menu"></paper-icon-button>
-          <paper-listbox slot="dropdown-content">
-            <paper-item>alpha</paper-item>
-            <paper-item>beta</paper-item>
-            <paper-item>gamma</paper-item>
-            <paper-item>delta</paper-item>
-            <paper-item>epsilon</paper-item>
-          </paper-listbox>
-        </paper-menu-button>
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Progress</h2>
+        </div>
+        <div class="demo__body">
+          <paper-progress value="40" secondary-progress="80"></paper-progress>
+        </div>
+
       </div>
-      <div>
-        <h2>Paper Progress</h2>
-        <paper-progress value="40" secondary-progress="80"></paper-progress>
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Spinner</h2>
+        </div>
+        <div class="demo__body">
+          <paper-spinner active></paper-spinner>
+        </div>
       </div>
-      <div>
-        <h2>Paper Spinner</h2>
-        <paper-spinner active></paper-spinner>
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Swatch Picker</h2>
+        </div>
+        <div class="demo__body">
+          <paper-swatch-picker color="#E91E63"></paper-swatch-picker>
+        </div>
       </div>
-      <div>
-        <h2>Paper Swatch Picker</h2>
-        <paper-swatch-picker color="#E91E63"></paper-swatch-picker>
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Tabs</h2>
+        </div>
+        <div class="demo__body">
+          <paper-tabs selected="0">
+            <paper-tab>ITEM ONE</paper-tab>
+            <paper-tab>ITEM TWO</paper-tab>
+            <paper-tab>ITEM THREE</paper-tab>
+          </paper-tabs>
+        </div>
       </div>
-      <div>
-        <h2>Paper Tabs</h2>
-        <paper-tabs selected="0">
-          <paper-tab>ITEM ONE</paper-tab>
-          <paper-tab>ITEM TWO</paper-tab>
-          <paper-tab>ITEM THREE</paper-tab>
-        </paper-tabs>
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Toolbar</h2>
+        </div>
+        <div class="demo__body">
+          <paper-toolbar>
+            <paper-icon-button slot="top" icon="menu"></paper-icon-button>
+            <span slot="top" class="title">Title</span>
+            <paper-icon-button slot="top" icon="refresh"></paper-icon-button>
+            <paper-icon-button slot="top" icon="add">+</paper-icon-button>
+          </paper-toolbar>
+        </div>
       </div>
-      <div>
-        <h2>Paper Toolbar</h2>
-        <paper-toolbar class="red">
-          <span slot="top" class="title">Title</span>
-        </paper-toolbar>
-      </div>
-      <div>
-        <h2>Paper Tooltip</h2>
-        <paper-icon-button id="id_2" icon="alarm-on" alt="go back"></paper-icon-button>
-        <paper-tooltip for="id_2" offset="0">wake up!</paper-tooltip>
+      <div class="demo">
+        <div class="demo__header">
+          <h2 class="demo__header-title">Paper Tooltip</h2>
+        </div>
+        <div class="demo__body">
+          <paper-icon-button id="id_2" icon="alarm-on" alt="go back"></paper-icon-button>
+          <paper-tooltip for="id_2" offset="0">wake up!</paper-tooltip>
+        </div>
+
       </div>
     </div>
 
